@@ -98,11 +98,22 @@ int main() {
 				else {
 					addKey(hash_table, value); //otherwise add new key
 					cout << "Key added: " << value << endl << endl;
+					
 				}
 				break;
 			// remove key
 			case 4:
-			
+				cout << "Enter key to remove: " << endl;
+				getline(cin, value);
+
+				if (searchKey(hash_table, value)) { //searches if new key to be added already exists
+					cout << "Key removed: " << value << endl << endl;
+					removeKey(hash_table, value);
+				}
+				else {
+					cout << "Key not found" << endl << endl;
+				}
+				break;
 			//modify key
 			case 5:
 			
@@ -177,11 +188,10 @@ void addKey(map<int, list<string>>& hash_table, string value) {
 }
 
 void removeKey(map<int, list<string>>& hash_table, string value) {
-	int hashIndex = gen_hash_index(value);
-
-	auto it = hash_table.find(hashIndex);
-
-	it->second.remove(value);
-
-
+	int hashIndex = gen_hash_index(value);//creates index for value
+	auto it = hash_table.find(hashIndex);//set it to find hashIndex in map
+	
+	if (it != hash_table.end()){ //if index found, remove value from list
+		it->second.remove(value);
+	}
 }
