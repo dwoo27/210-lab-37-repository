@@ -28,31 +28,24 @@ int main() {
 			 
 			//at hashIndex, set the value in list to read value
 			hash_table[hashIndex].push_back(value);
+
+			//display first 100 entries from file
+			if (count < 100) {
+				
+				cout << "Entry " << count + 1 << endl;
+				//access int/key/index in map pair and output
+				cout << "Hash index: " << hashIndex << endl;
+				
+				//access value in map list/value and ouput
+				cout << "Value: " << value << endl << endl;
+			}
+			count++;
 		}
 
 		fin.close();
 	}
 	else {
 		cout << "File not found" << endl;
-	}
-	
-	
-	//loop through table contents
-	for (const auto& p : hash_table) { 
-		
-		//loop through values in map list/value
-		for (const string& value : p.second) {
-			if (count == 100) {
-				break;
-			}
-			
-			//access int/key/index in map pair and output
-			cout << "Hash index: " << p.first << endl;
-			cout << "Value: " << value << endl;
-		}
-
-		cout << endl;
-		count++;
 	}
 	
 
