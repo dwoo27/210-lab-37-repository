@@ -6,6 +6,7 @@
 using namespace std;
 
 int gen_hash_index(string);
+void coutHundred(map<int, list<string>>&);
 
 
 int main() {
@@ -48,6 +49,17 @@ int main() {
 		cout << "File not found" << endl;
 	}
 	
+	int choice;
+
+	do {
+		cout << "1. Print first 100 entries" << endl;
+		cout << "2. Search for key" << endl;
+		cout << "3. Add key" << endl;
+		cout << "4. Remove key" << endl;
+		cout << "5. Modify key" << endl;
+		cout << "6. Exit" << endl;
+		cout << "Enter choice: " << endl;
+	} while (choice != 6);
 
 	return 0;
 }
