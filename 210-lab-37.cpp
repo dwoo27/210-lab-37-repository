@@ -8,6 +8,7 @@ using namespace std;
 int gen_hash_index(string);
 void firstHundred(map<int, list<string>>&);
 bool searchKey(map<int, list<string>>&, string);
+void addKey(map<int, list<string>>&, string);
 
 
 int main() {
@@ -87,7 +88,17 @@ int main() {
 
 			//add key
 			case 3:
-			
+				cout << "Enter key to add: " << endl;
+				getline(cin, value);
+
+				if (tree.searchNode(value)) { //searches if new record to be added already exists
+					cout << "Record already exists" << endl << endl;
+				}
+				else {
+					tree.insertNode(value); //otherwise add new record
+					cout << "Record added: " << value << endl << endl;
+				}
+				break;
 			// remove key
 			case 4:
 			
@@ -157,4 +168,9 @@ bool searchKey(map<int, list<string>>& hash_table, string value){
 
 	return false;
 
+}
+
+void addKey(map<int, list<string>>& hash_table, string value) {
+	int hashIndex = gen_hash_index(value);//creates index for value
+	hash_table[hashIndex].push_back(value); //at new index, add value in hash table
 }
