@@ -6,12 +6,13 @@
 using namespace std;
 
 int gen_hash_index(string);
-void coutHundred(map<int, list<string>>&);
+void firstHundred(map<int, list<string>>&);
 
 
 int main() {
 	
 	map<int, list<string>> hash_table;
+	list<string> fh; //list to store first hundred entries
 
 	ifstream fin;
 	fin.open("lab-37-data-3.txt");
@@ -27,7 +28,13 @@ int main() {
 			 
 			//at hashIndex, set the value in list to read value
 			hash_table[hashIndex].push_back(value);
+
+			//store first 100 values read to use for firstHundred function
+			if (fh.size() < 100) {
+				fh.push_back(value);
 			}
+
+			
 		}
 		fin.close();
 	}
@@ -49,7 +56,7 @@ int main() {
 		cin >> choice;
 
 		//prevents program from crashing if user enters str instead of int for invalid choice
-		if (cin.fail()) {
+		if(cin.fail()) {
 			cin.clear();
 			choice = 0;
 		}
@@ -59,7 +66,10 @@ int main() {
 		switch (choice) {
 			//print first 100 entries
 			case 1:
-
+				cout << endl;
+				firstHundred(fh);
+				cout << endl;
+				break;
 			
 			//search for key
 			case 2:
@@ -102,17 +112,19 @@ int gen_hash_index(string val) {
 	return total;
 }
 
-void coutHundred(map<int, list<string>>& hash_table) {
+void firstHundred(list<string>& fh) {
 	int count = 0;
 	
-
 	//display first 100 entries from file
-	if (count < 100) {
-
+	for (const string& value : fh) {
 		cout << "Entry " << count + 1 << endl;
-		//access int/key/index in map pair and output
-		cout << "Hash index: " << hashIndex << endl;
-
-		//access value in map list/value and output
+		
+		//convert value to hash index/key
+		cout << "Hash index: " << gen_hash_index(value) << endl;
+		
+		//output value
 		cout << "Value: " << value << endl << endl;
+
+		count++;
+	}
 }
