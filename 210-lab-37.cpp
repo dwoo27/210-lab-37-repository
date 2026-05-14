@@ -7,6 +7,7 @@ using namespace std;
 
 int gen_hash_index(string);
 void firstHundred(map<int, list<string>>&);
+bool searchKey(map<int, list<string>>&, string);
 
 
 int main() {
@@ -127,4 +128,17 @@ void firstHundred(list<string>& fh) {
 
 		count++;
 	}
+}
+
+bool searchKey(map<int, list<string>>& hash_table, string value){
+	int hashIndex = gen_hash_index(value);
+
+	auto it = hash_table.find(hashIndex); //set it to find hashIndex in map
+
+	if (it == hash_table.end()) { //return false if not found
+		return false;
+	}
+
+	for(const string& index)
+
 }
