@@ -1,26 +1,32 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 int sum_ascii(string);
 
 
 int main() {
-	char a = 'A';
-	cout << a << endl;
-	cout << (int)a << endl;
-	int b = 66;
-	cout << b << endl;
-	cout << (char)b << endl;
+	
+	ifstream fin;
+	fin.open("lab-37-data-3.txt");
+	
+	string value;
+	int grandTotal = 0;
+	
+	if (fin.good()) {
+		while (getline(fin, value)) {
+			grandTotal += sum_ascii(value);
+		}
 
-	string value = "ABC";
-	string v2 = "123";
-
-	cout << value << endl;
-	cout << sum_ascii(value)<< endl;
-	cout << v2 << endl;
-	cout << sum_ascii(v2);
-
+		fin.close();
+	}
+	else {
+		cout << "File not found" << endl;
+	}
+	
+	cout << "Grand total: " << grandTotal;
+	
 
 	return 0;
 }
@@ -37,7 +43,6 @@ int sum_ascii(string val) {
 
 	for (int i = 0; i < val.length(); i++) {
 		total += (int)val[i];
-		cout << (int)val[i] << endl; //cout line for testing and verification
 	}
 	
 	return total;
