@@ -18,31 +18,17 @@ int main() {
 	
 	string value;
 	int hashIndex;
-	int count = 0;
 
 	//read values from file and populate hash table while outputting first 100 entries
 	if (fin.good()) {
-		while (getline(fin, value)) {
-			
+		while (getline(fin, value)) {	
 			//set hashIndex as ascii sum of value
 			hashIndex = gen_hash_index(value);
 			 
 			//at hashIndex, set the value in list to read value
 			hash_table[hashIndex].push_back(value);
-
-			//display first 100 entries from file
-			if (count < 100) {
-				
-				cout << "Entry " << count + 1 << endl;
-				//access int/key/index in map pair and output
-				cout << "Hash index: " << hashIndex << endl;
-				
-				//access value in map list/value and ouput
-				cout << "Value: " << value << endl << endl;
 			}
-			count++;
 		}
-
 		fin.close();
 	}
 	else {
@@ -59,6 +45,41 @@ int main() {
 		cout << "5. Modify key" << endl;
 		cout << "6. Exit" << endl;
 		cout << "Enter choice: " << endl;
+
+		cin >> choice;
+
+		//prevents program from crashing if user enters str instead of int for invalid choice
+		if (cin.fail()) {
+			cin.clear();
+			choice = 0;
+		}
+
+		cin.ignore(1000, 10);
+
+		switch (choice) {
+			//print first 100 entries
+			case 1:
+
+			
+			//search for key
+			case 2:
+			
+			//add key
+			case 3:
+			
+			// remove key
+			case 4:
+			
+			//modify key
+			case 5:
+			
+			//exit
+			case 6:
+
+			default: //default for invalid choice
+				cout << "Invalid choice. Please try again." << endl << endl;
+		}
+
 	} while (choice != 6);
 
 	return 0;
@@ -79,5 +100,19 @@ int gen_hash_index(string val) {
 	}
 	
 	return total;
+}
 
+void coutHundred(map<int, list<string>>& hash_table) {
+	int count = 0;
+	
+
+	//display first 100 entries from file
+	if (count < 100) {
+
+		cout << "Entry " << count + 1 << endl;
+		//access int/key/index in map pair and output
+		cout << "Hash index: " << hashIndex << endl;
+
+		//access value in map list/value and output
+		cout << "Value: " << value << endl << endl;
 }
