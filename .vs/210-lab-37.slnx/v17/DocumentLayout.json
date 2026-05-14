@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\dylan\\source\\repos\\210-lab-37\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ACD51052-1D2F-459C-9E29-B4B3F48DDF27}|210-lab-37.vcxproj|C:\\Users\\dylan\\source\\repos\\210-lab-37\\210-lab-37.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{ACD51052-1D2F-459C-9E29-B4B3F48DDF27}|210-lab-37.vcxproj|solutionrelative:210-lab-37.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "210-lab-37.cpp",
+              "DocumentMoniker": "C:\\Users\\dylan\\source\\repos\\210-lab-37\\210-lab-37.cpp",
+              "RelativeDocumentMoniker": "210-lab-37.cpp",
+              "ToolTip": "C:\\Users\\dylan\\source\\repos\\210-lab-37\\210-lab-37.cpp",
+              "RelativeToolTip": "210-lab-37.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-14T04:26:18.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

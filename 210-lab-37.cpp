@@ -1,20 +1,18 @@
-// 210-lab-37.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
-
-int main()
-{
-    std::cout << "Hello World!\n";
+using namespace std;
+int main() {
+	char a = 'A';
+	cout << a << endl;
+	cout << (int)a << endl;
+	int b = 66;
+	cout << b << endl;
+	cout << (char)b << endl;
+	return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+/*
+These targets are present in the dataset and can be used for testing:
+536B9DFC93AF
+1DA9D64D02A0
+666D109AA22E
+E1D2665B21EA
+*/
