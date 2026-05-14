@@ -1,22 +1,27 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <map>
+#include <list>
 using namespace std;
 
-int sum_ascii(string);
+int gen_hash_index(string);
 
 
 int main() {
 	
+	map<int, list<string>> hash_table;
+
 	ifstream fin;
 	fin.open("lab-37-data-3.txt");
 	
 	string value;
-	int grandTotal = 0;
+	int hashIndex;
 	
 	if (fin.good()) {
 		while (getline(fin, value)) {
-			grandTotal += sum_ascii(value);
+			hashIndex = gen_hash_index(value);
+
 		}
 
 		fin.close();
@@ -38,7 +43,7 @@ These targets are present in the dataset and can be used for testing:
 E1D2665B21EA
 */
 
-int sum_ascii(string val) {
+int gen_hash_index(string val) {
 	int total = 0;
 
 	for (int i = 0; i < val.length(); i++) {
