@@ -6,7 +6,7 @@
 using namespace std;
 
 int gen_hash_index(string);
-void firstHundred(map<int, list<string>>&);
+void firstHundred(list<string>&);
 bool searchKey(map<int, list<string>>&, string);
 void addKey(map<int, list<string>>&, string);
 void removeKey(map<int, list<string>>&, string);
@@ -83,7 +83,7 @@ int main() {
 				getline(cin, value);
 
 				if (searchKey(hash_table, value)) { //searches for key
-					cout << "Key found" << endl << endl;
+					cout << "Key found at hash index: " << gen_hash_index(value) << endl << endl;
 				}
 				else {
 					cout << "Key not found" << endl << endl;
@@ -110,7 +110,7 @@ int main() {
 				cout << "Enter key to remove: " << endl;
 				getline(cin, value);
 
-				if (searchKey(hash_table, value)) { //searches if new key to be added already exists
+				if (searchKey(hash_table, value)) { //searches if key to be removed exists
 					cout << "Key removed: " << value << endl << endl;
 					removeKey(hash_table, value);
 				}
@@ -129,12 +129,12 @@ int main() {
 
 				proceed = true;
 
-				if (searchKey(hash_table, value)) { //checks if key to change exists
-					cout << "Key to modify not found" << endl;
+				if (!searchKey(hash_table, value)) { //checks if key to change exists
+					cout << "Key to modify not found" << endl  << endl;
 					proceed = false;
 				}
 				if (searchKey(hash_table, newValue)) { //checks if new record already exists
-					cout << "New key already exists" << endl;
+					cout << "New key already exists" << endl << endl;
 					proceed = false;
 				}
 				if (proceed) { //removes old and adds new keys
