@@ -9,6 +9,7 @@ int gen_hash_index(string);
 void firstHundred(map<int, list<string>>&);
 bool searchKey(map<int, list<string>>&, string);
 void addKey(map<int, list<string>>&, string);
+void removeKey(map<int, list<string>>&, string);
 
 
 int main() {
