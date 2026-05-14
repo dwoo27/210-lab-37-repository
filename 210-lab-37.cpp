@@ -74,7 +74,17 @@ int main() {
 			
 			//search for key
 			case 2:
-			
+				cout << "Enter key to search: " << endl;
+				getline(cin, value);
+
+				if (searchKey(hash_table, value)) { //searches for key
+					cout << "Key found" << endl << endl;
+				}
+				else {
+					cout << "Key not found" << endl << endl;
+				}
+				break;
+
 			//add key
 			case 3:
 			
@@ -139,6 +149,12 @@ bool searchKey(map<int, list<string>>& hash_table, string value){
 		return false;
 	}
 
-	for(const string& index)
+	for (const string& val : it->second) { //loops through list of index found
+		if (val == value) { //compares each element to value searched for
+			return true; //returns true if found
+		}
+	}
+
+	return false;
 
 }
