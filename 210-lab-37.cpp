@@ -91,12 +91,12 @@ int main() {
 				cout << "Enter key to add: " << endl;
 				getline(cin, value);
 
-				if (tree.searchNode(value)) { //searches if new record to be added already exists
-					cout << "Record already exists" << endl << endl;
+				if (searchKey(hash_table, value)) { //searches if new key to be added already exists
+					cout << "Key already exists" << endl << endl;
 				}
 				else {
-					tree.insertNode(value); //otherwise add new record
-					cout << "Record added: " << value << endl << endl;
+					addKey(hash_table, value); //otherwise add new key
+					cout << "Key added: " << value << endl << endl;
 				}
 				break;
 			// remove key
