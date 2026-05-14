@@ -17,7 +17,7 @@ int main() {
 	string v2 = "123";
 
 	cout << value << endl;
-	cout << sum_ascii(value);
+	cout << sum_ascii(value)<< endl;
 	cout << v2 << endl;
 	cout << sum_ascii(v2);
 
