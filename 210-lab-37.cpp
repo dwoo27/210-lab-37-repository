@@ -146,6 +146,8 @@ int main() {
 
 			//exit
 			case 6:
+				cout << "Exiting program" << endl;
+				break;
 
 			default: //default for invalid choice
 				cout << "Invalid choice. Please try again." << endl << endl;
