@@ -20,8 +20,10 @@ int main() {
 	
 	if (fin.good()) {
 		while (getline(fin, value)) {
+			//set hashIndex as ascii sum of value
 			hashIndex = gen_hash_index(value);
-
+			 //at hashIndex, set the value in list to read value
+			hash_table[hashIndex].push_back(value);
 		}
 
 		fin.close();
@@ -30,7 +32,24 @@ int main() {
 		cout << "File not found" << endl;
 	}
 	
-	cout << "Grand total: " << grandTotal;
+	int count = 0;
+	//loop through table contents
+	for (const auto& p : hash_table) { 
+		if (count == 100) {
+			break;
+		}
+
+		//access int/key/index in map pair and output
+		cout << "Hash index: " << p.first << endl; 
+
+		//loop through and output values in map list/value
+		for (const string& value : p.second) {
+			cout << "Value: " << value << endl;
+		}
+
+		cout << endl;
+		count++;
+	}
 	
 
 	return 0;
