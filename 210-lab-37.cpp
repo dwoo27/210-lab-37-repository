@@ -10,6 +10,7 @@ void firstHundred(map<int, list<string>>&);
 bool searchKey(map<int, list<string>>&, string);
 void addKey(map<int, list<string>>&, string);
 void removeKey(map<int, list<string>>&, string);
+void modifyKey(map<int, list<string>>&, string, string);
 
 
 int main() {
@@ -21,7 +22,9 @@ int main() {
 	fin.open("lab-37-data-3.txt");
 	
 	string value;
+	string newValue;
 	int hashIndex;
+	bool proceed;
 
 	//read values from file and populate hash table while outputting first 100 entries
 	if (fin.good()) {
@@ -101,6 +104,7 @@ int main() {
 					
 				}
 				break;
+
 			// remove key
 			case 4:
 				cout << "Enter key to remove: " << endl;
@@ -114,9 +118,32 @@ int main() {
 					cout << "Key not found" << endl << endl;
 				}
 				break;
+
 			//modify key
 			case 5:
-			
+				cout << "Enter key to modify: " << endl;
+				getline(cin, value);
+
+				cout << "Enter new key: " << endl;
+				getline(cin, newValue);
+
+				proceed = true;
+
+				if (searchKey(hash_table, value)) { //checks if key to change exists
+					cout << "Key to modify not found" << endl;
+					proceed = false;
+				}
+				if (searchKey(hash_table, newValue)) { //checks if new record already exists
+					cout << "New key already exists" << endl;
+					proceed = false;
+				}
+				if (proceed) { //removes old and adds new keys
+					cout << endl << "Key found: " << value << endl;
+					cout << "Modify key to: " << newValue << endl << endl;
+					modifyKey(hash_table, value, newValue);
+				}
+				break;
+
 			//exit
 			case 6:
 
@@ -194,4 +221,10 @@ void removeKey(map<int, list<string>>& hash_table, string value) {
 	if (it != hash_table.end()){ //if index found, remove value from list
 		it->second.remove(value);
 	}
+}
+
+void modifyKey(map<int, list<string>>& hash_table, string value, string newValue) {
+	removeKey(hash_table, value); //remove old key from map
+	addKey(hash_table, newValue); //add new key to map 
+
 }
