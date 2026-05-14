@@ -175,3 +175,13 @@ void addKey(map<int, list<string>>& hash_table, string value) {
 	int hashIndex = gen_hash_index(value);//creates index for value
 	hash_table[hashIndex].push_back(value); //at new index, add value in hash table
 }
+
+void removeKey(map<int, list<string>>& hash_table, string value) {
+	int hashIndex = gen_hash_index(value);
+
+	auto it = hash_table.find(hashIndex);
+
+	it->second.remove(value);
+
+
+}
