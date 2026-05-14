@@ -17,12 +17,16 @@ int main() {
 	
 	string value;
 	int hashIndex;
-	
+	int count = 0;
+
+	//read values from file and populate hash table while outputting first 100 entries
 	if (fin.good()) {
 		while (getline(fin, value)) {
+			
 			//set hashIndex as ascii sum of value
 			hashIndex = gen_hash_index(value);
-			 //at hashIndex, set the value in list to read value
+			 
+			//at hashIndex, set the value in list to read value
 			hash_table[hashIndex].push_back(value);
 		}
 
@@ -32,18 +36,18 @@ int main() {
 		cout << "File not found" << endl;
 	}
 	
-	int count = 0;
+	
 	//loop through table contents
 	for (const auto& p : hash_table) { 
-		if (count == 100) {
-			break;
-		}
-
-		//access int/key/index in map pair and output
-		cout << "Hash index: " << p.first << endl; 
-
-		//loop through and output values in map list/value
+		
+		//loop through values in map list/value
 		for (const string& value : p.second) {
+			if (count == 100) {
+				break;
+			}
+			
+			//access int/key/index in map pair and output
+			cout << "Hash index: " << p.first << endl;
 			cout << "Value: " << value << endl;
 		}
 
